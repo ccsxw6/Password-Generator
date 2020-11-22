@@ -7,15 +7,15 @@ This project is a random password generator. When the user clicks on the "Genera
 
 ### Initial Webpage
 
-![Initial-Page](images\first_prompt_screenshot.PNG)
+![Initial-Page](images/first_prompt_screenshot.PNG)
 
 ### First Prompt
 
-![First-Prompt](images\first_prompt_screenshot.PNG)
+![First-Prompt](images/first_prompt_screenshot.PNG)
 
 ### Generated Password
 
-![Generated-Password](images\generated_password.PNG)
+![Generated-Password](images/generated_password.PNG)
 
 
 ## Deployment
