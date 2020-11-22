@@ -1,11 +1,13 @@
+//Selecting the button id and setting it to a variable
 var generateBtn = document.querySelector("#generate");
 
+//Setting the criteria options
 var lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 var upper = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var special = ['@', '%', '+', '/', "'", '!', '#', '$', '^', '?', ':', ',', ')', '(', "{", '}', "[", ']', '~', '-', '_', '.'];
 var numeric = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-
+//Setting a function with prompts and confirms to ask user
 function generateOptions() {
   var length = parseInt(prompt('How many characters would you like your password to contain?'));
 
@@ -36,7 +38,7 @@ function generateOptions() {
     return;
   }
 
- 
+  // Creating an object to store the users choices
   var questionOptions = {
     length: length,
     includeSpecial: includeSpecial,
@@ -47,6 +49,7 @@ function generateOptions() {
   return questionOptions; 
 }
 
+//Helper function to get random characters later
 function getRandom(arr) {
   var randIndex = Math.floor(Math.random() * arr.length);
   var randElement = arr[randIndex];
@@ -54,13 +57,14 @@ function getRandom(arr) {
   return randElement;
 } 
 
-
-function generatePassword() {
+//Function to generate the password
+function passwordCreate() {
   var options = generateOptions();
   var result = [];
   var possibleCharacters = [];
   var guaranteedCharacters = [];
 
+  //Conditional adding user chosen criteris into possibleCharacters and guaranteedCharacters
   if (options.includeSpecial) {
     possibleCharacters = possibleCharacters.concat(special);
     guaranteedCharacters.push(getRandom(special));
@@ -93,11 +97,12 @@ function generatePassword() {
   return result.join('');
 }
 
+//writing password into the card body
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var password = passwordCreate();
+  var printPassword = document.querySelector("#password");
 
-  passwordText.value = password;
+  printPassword.value = password;
 }
 
 generateBtn.addEventListener('click', writePassword);
